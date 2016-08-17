@@ -58,4 +58,7 @@ class TimelineWorker(object):
         else:
             sleep_secs = self.sleep_time - elapsed_time
             logger.debug('Sleeping for %i seconds', sleep_secs.seconds)
-            sleep(sleep_secs.seconds)
+            sleep_total = (
+                sleep_secs.seconds + sleep_secs.microseconds / 1000000.0
+            )
+            sleep(sleep_total)
