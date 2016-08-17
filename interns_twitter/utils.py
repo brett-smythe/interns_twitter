@@ -1,6 +1,6 @@
 """Utilities for interns_twitter service"""
-
 import logging
+import logging.config
 import time
 
 

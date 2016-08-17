@@ -57,5 +57,5 @@ class TimelineWorker(object):
             twitter_client.get_user_timeline_tweets(current_twitter_user)
         else:
             sleep_secs = self.sleep_time - elapsed_time
-            logger.debug('Sleeping for %i seconds', sleep_secs)
+            logger.debug('Sleeping for %i seconds', sleep_secs.seconds)
             sleep(sleep_secs.seconds)
