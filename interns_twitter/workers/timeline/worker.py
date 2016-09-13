@@ -21,7 +21,6 @@ class TimelineWorker(object):
         self.last_request = datetime.utcnow()
         self.sleep_time = 5
         self.calculate_sleep()
-        self.user_index = 0
         self.tracked_users = set()
 
     def calculate_sleep(self):

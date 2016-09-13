@@ -14,7 +14,7 @@ with open('requirements.txt') as inf:
 
 setup(
     name='interns-twitter',
-    version='0.0.3',
+    version='0.0.4',
     description='Worker to gather twitter text sources',
     long_description=long_description,
     author='Brett Smythe',
