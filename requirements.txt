@@ -1,4 +1,4 @@
-aquatic-twitter==0.1.1
+aquatic-twitter==0.1.2
 eleanor-client==0.3.3
 future==0.15.2
 oauthlib==1.1.2
