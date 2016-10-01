@@ -2,27 +2,32 @@
 # pylint can't seem to find this even though it's installed
 # pylint: disable=import-error
 
-from interns_twitter.creds import creds
+from interns_twitter.creds.creds import InternsTwitterConfigs
 from interns_twitter import utils as interns_utils
 
 from aquatic_twitter import client as twitter_client
 
 from eleanor_client.endpoints import twitter as eleanor_twitter
 
-logger = interns_utils.get_logger(__name__)
 
-twitterClient = twitter_client.AquaticTwitter(
-    creds.twitter_consumer_key,
-    creds.twitter_consumer_secret,
-    creds.twitter_access_token_key,
-    creds.twitter_access_token_secret,
-    False
-)
+def get_twitter_client():
+    """Get the twitter client"""
+    credConfigs = InternsTwitterConfigs()
+    twitterClient = twitter_client.AquaticTwitter(
+        credConfigs.twitter_consumer_key,
+        credConfigs.twitter_consumer_secret,
+        credConfigs.twitter_access_token_key,
+        credConfigs.twitter_access_token_secret,
+        False
+    )
+    return twitterClient
 
 
 def get_user_timeline_tweets(screen_name):
     """Pull as many tweets as possible for a newly added user"""
+    logger = interns_utils.get_logger(__name__)
     logger.info('Making twitter timeline request')
+    twitterClient = get_twitter_client()
     last_entry_id = eleanor_twitter.get_username_last_tweet_id(screen_name)
     timeline_tweets = []
 
@@ -42,6 +47,7 @@ def insert_tweet_data(tweet):
     """
     Pulls data from a tweet and makes a request to eleanor to add tweet data
     """
+    logger = interns_utils.get_logger(__name__)
     logger.debug('Making call to eleanor to add tweet data')
     base_twitter_url = 'https://twitter.com/{0}/status/{1}'
     source_url = base_twitter_url.format(tweet.user.screen_name, tweet.id_str)

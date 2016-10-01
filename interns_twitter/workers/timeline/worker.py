@@ -9,14 +9,13 @@ from interns_twitter import utils as interns_utils
 
 from eleanor_client.endpoints import twitter as eleanor_twitter
 
-logger = interns_utils.get_logger(__name__)
-
 
 class TimelineWorker(object):
     """Worker class to get twitter timeline data"""
 
     def __init__(self):
         """Worker class to get twitter timeline data"""
+        logger = interns_utils.get_logger(__name__)
         logger.info('Starting twitter timeline worker')
         self.last_request = datetime.utcnow()
         self.sleep_time = 5
@@ -25,6 +24,7 @@ class TimelineWorker(object):
 
     def calculate_sleep(self):
         """Calculate how long the worker should sleep between API requests"""
+        logger = interns_utils.get_logger(__name__)
         sleep_time = (
             timeline_settings.time_window /
             timeline_settings.requests_per_window
@@ -36,6 +36,7 @@ class TimelineWorker(object):
 
     def update_tracked_users(self):
         """Update the local list of tracked twitter users"""
+        logger = interns_utils.get_logger(__name__)
         logger.debug('Updating tracked twitter users')
         tracked_users = eleanor_twitter.get_tracked_twitter_users()
         self.tracked_users = set(tracked_users)
@@ -43,6 +44,7 @@ class TimelineWorker(object):
     def do_work(self):
         """Sleep until execution time and then pull data from twitter timelines
         """
+        logger = interns_utils.get_logger(__name__)
         if len(self.tracked_users) == 0:
             self.update_tracked_users()
         now = datetime.utcnow()
