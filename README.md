@@ -9,7 +9,7 @@ I would recommend installing and running interns-twitter within a virtualenv.
 python setup.py install
 ```
 
-### External dependencies
+### External Dependencies
 interns-twitter depends on having:
 * a running instance of [Eleanor](https://github.com/brett-smythe/eleanor) setup
 * Network access to Twitter's API
