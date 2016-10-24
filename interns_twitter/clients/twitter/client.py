@@ -17,8 +17,7 @@ def get_twitter_client():
         credConfigs.twitter_consumer_key,
         credConfigs.twitter_consumer_secret,
         credConfigs.twitter_access_token_key,
-        credConfigs.twitter_access_token_secret,
-        False
+        credConfigs.twitter_access_token_secret
     )
     return twitterClient
 
