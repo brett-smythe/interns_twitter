@@ -1,4 +1,4 @@
-aquatic-twitter==0.1.4
+aquatic-twitter==0.1.5
 eleanor-client==0.3.3
 funcsigs==1.0.2
 future==0.15.2
