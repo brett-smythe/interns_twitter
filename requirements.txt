@@ -1,5 +1,5 @@
 aquatic-twitter==0.1.5
-eleanor-client==0.3.5
+eleanor-client==0.3.6
 funcsigs==1.0.2
 future==0.15.2
 mock==2.0.0
