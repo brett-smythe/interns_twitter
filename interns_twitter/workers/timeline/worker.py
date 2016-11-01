@@ -50,6 +50,8 @@ class TimelineWorker(object):
         now = datetime.utcnow()
         elapsed_time = now - self.last_request
         if elapsed_time >= self.sleep_time:
+            if len(self.tracked_users) == 0:
+                return
             current_twitter_user = self.tracked_users.pop()
             logger.info(
                 'Getting timeline tweets for user: %s', current_twitter_user
