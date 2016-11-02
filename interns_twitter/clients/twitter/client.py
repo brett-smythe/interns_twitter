@@ -25,7 +25,7 @@ def get_twitter_client():
 def get_user_timeline_tweets(screen_name):
     """Pull as many tweets as possible for a newly added user"""
     logger = interns_utils.get_logger(__name__)
-    logger.info('Making twitter timeline request')
+    logger.info('Making twitter timeline request for user: %s', screen_name)
     twitterClient = get_twitter_client()
     last_entry_id = eleanor_twitter.get_username_last_tweet_id(screen_name)
     timeline_tweets = []

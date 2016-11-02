@@ -53,7 +53,12 @@ class TimelineWorker(object):
             if len(self.tracked_users) == 0:
                 self.last_request = now
                 return
-            current_twitter_user = self.tracked_users.pop()
+            try:
+                current_twitter_user = self.tracked_users.pop()
+            except ValueError as e:
+                logger.info('No users in self.tracked_users, sleeping')
+                sleep(5)
+                return
             logger.info(
                 'Getting timeline tweets for user: %s', current_twitter_user
             )
