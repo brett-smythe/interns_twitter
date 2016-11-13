@@ -76,7 +76,7 @@ class InternsTwitterClientCases(unittest.TestCase):
 
     @mock.patch('interns_twitter.clients.twitter.client.get_twitter_client')
     @mock.patch('interns_twitter.clients.twitter.client.eleanor_twitter')
-    @mock.patch('interns_twitter.clients.twitter.client.interns_utils')
+    @mock.patch('interns_twitter.clients.twitter.client.interns_logger')
     def test_get_user_timeline_tweets_with_last_entry(self,
                                                       mock_interns_utils,
                                                       mock_eleanor_twitter,
@@ -99,7 +99,7 @@ class InternsTwitterClientCases(unittest.TestCase):
 
     @mock.patch('interns_twitter.clients.twitter.client.get_twitter_client')
     @mock.patch('interns_twitter.clients.twitter.client.eleanor_twitter')
-    @mock.patch('interns_twitter.clients.twitter.client.interns_utils')
+    @mock.patch('interns_twitter.clients.twitter.client.interns_logger')
     def test_get_user_timeline_tweets__no_last_entry(self,
                                                      mock_interns_utils,
                                                      mock_eleanor_twitter,
@@ -120,7 +120,7 @@ class InternsTwitterClientCases(unittest.TestCase):
         )
 
     @mock.patch('interns_twitter.clients.twitter.client.eleanor_twitter')
-    @mock.patch('interns_twitter.clients.twitter.client.interns_utils')
+    @mock.patch('interns_twitter.clients.twitter.client.interns_logger')
     def test_insert_tweet_data(self, mock_interns_utils, mock_eleanor_twitter):
         """Test inserting tweet data"""
         test_tweet = self.create_test_tweet()
