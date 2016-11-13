@@ -51,6 +51,7 @@ class TimelineWorker(object):
         elapsed_time = now - self.last_request
         if elapsed_time >= self.sleep_time:
             if len(self.tracked_users) == 0:
+                logger.info('Length of tracked_users is 0, sleeping')
                 self.last_request = now
                 return
             try:
