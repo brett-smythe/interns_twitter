@@ -2,6 +2,8 @@
 
 Worker service to pull tweet data and add it to [Eleanor](https://github.com/brett-smythe/eleanor).
 
+To see how this fits in with the other repos please see [Aquatic Services Wiki](https://github.com/brett-smythe/ansible_configs/wiki)
+
 ## Install
 I would recommend installing and running interns-twitter within a virtualenv.
 
